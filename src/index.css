@@ -1,13 +1,41 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+/* .hero {
+    position: relative;
+    background-image: url('../hero.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+  } */
+  
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-bottom-right-radius: 15rem;
+    background-color: gray; /* Gray color overlay */
+    opacity: 0.7; /* Adjust opacity as needed */
+    z-index: 1; /* Place it behind the content */
+  }
+  
+  .hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2; /* Adjust opacity as needed */
+    z-index: 2; /* Place it above the before pseudo-element */
+  }
+  
+  .hero .content {
+    position: relative;
+    z-index: 3; /* Ensure content is above both pseudo-elements */
+  }
+  
